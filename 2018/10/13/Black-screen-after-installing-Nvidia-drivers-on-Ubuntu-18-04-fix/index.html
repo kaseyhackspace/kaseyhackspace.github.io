@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
 <!-- Google Analytics -->
@@ -20,18 +20,18 @@ ga('send', 'pageview');
   
   <title>Black screen after installing Nvidia drivers on Ubuntu 18.04 fix | kaseycodes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn&amp;#x2019;t have the time">
+  <meta name="description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn’t have the time to be">
 <meta name="keywords" content="nvidia,drivers,ubuntu,18.04,grub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Black screen after installing Nvidia drivers on Ubuntu 18.04 fix">
 <meta property="og:url" content="https://kaseycodes.tk/2018/10/13/Black-screen-after-installing-Nvidia-drivers-on-Ubuntu-18-04-fix/index.html">
 <meta property="og:site_name" content="kaseycodes">
-<meta property="og:description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn&amp;#x2019;t have the time">
+<meta property="og:description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn’t have the time to be">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-12-01T06:39:52.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Black screen after installing Nvidia drivers on Ubuntu 18.04 fix">
-<meta name="twitter:description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn&amp;#x2019;t have the time">
+<meta name="twitter:description" content="I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed apt-get dist-upgrade. Since I didn’t have the time to be">
   
     <link rel="alternate" href="/atom.xml" title="kaseycodes" type="application/atom+xml">
   
@@ -43,7 +43,7 @@ ga('send', 'pageview');
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
 <body>
   <div id="container">
     <div id="wrap">
@@ -104,15 +104,15 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed <code>apt-get dist-upgrade</code>. Since I didn&#x2019;t have the time to be checking what the best driver version was for my graphics card, I went ahead and installed the drivers using the <code>sudo ubuntu-drivers autoinstall</code> command. Everything seemed ok, until I rebooted the system and was greeted with a black screen, and an unresponsive system.</p>
+        <p>I recently needed to reinstall Nvidia drivers as I performed a clean format to Ubuntu 18.04 after horribly crippling my system due to a failed <code>apt-get dist-upgrade</code>. Since I didn’t have the time to be checking what the best driver version was for my graphics card, I went ahead and installed the drivers using the <code>sudo ubuntu-drivers autoinstall</code> command. Everything seemed ok, until I rebooted the system and was greeted with a black screen, and an unresponsive system.</p>
 <p>I did get to login to my system whenever I manually edited the grub configuration before booting up to change <code>quiet splash</code> to <code>nomodeset</code>. To make things more permanent, I did the following steps:</p>
 <p>Edit the <code>/etc/default/grub</code> file as root using <code>nano</code>:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo nano /etc/default/grub</span><br></pre></td></tr></tbody></table></figure>
 <p>Change the line that has the <code>GRUB_CMDLINE_LINUX_DEFAULT</code> string from </p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;quiet splash&quot;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>to<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;nomodeset&quot;</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"quiet splash"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>to<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"nomodeset"</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>My default grub configuration now looks like this:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you change this file, run &apos;update-grub&apos; afterwards to update</span></span><br><span class="line"><span class="comment"># /boot/grub/grub.cfg.</span></span><br><span class="line"><span class="comment"># For full documentation of the options in this file, see:</span></span><br><span class="line"><span class="comment">#   info -f grub -n &apos;Simple configuration&apos;</span></span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT=0</span><br><span class="line">GRUB_TIMEOUT_STYLE=hidden</span><br><span class="line">GRUB_TIMEOUT=10</span><br><span class="line">GRUB_DISTRIBUTOR=`lsb_release -i -s 2&gt; /dev/null || <span class="built_in">echo</span> Debian`</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;nomodeset&quot;</span></span><br><span class="line">GRUB_CMDLINE_LINUX=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to enable BadRAM filtering, modify to suit your needs</span></span><br><span class="line"><span class="comment"># This works with Linux (no patch required) and with any kernel that obtains</span></span><br><span class="line"><span class="comment"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span></span><br><span class="line"><span class="comment">#GRUB_BADRAM=&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to disable graphical terminal (grub-pc only)</span></span><br><span class="line"><span class="comment">#GRUB_TERMINAL=console</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The resolution used on graphical terminal</span></span><br><span class="line"><span class="comment"># note that you can use only modes which your graphic card supports via VBE</span></span><br><span class="line"><span class="comment"># you can see them in real GRUB with the command `vbeinfo&apos;</span></span><br><span class="line"><span class="comment">#GRUB_GFXMODE=640x480</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment if you don&apos;t want GRUB to pass &quot;root=UUID=xxx&quot; parameter to Linux</span></span><br><span class="line"><span class="comment">#GRUB_DISABLE_LINUX_UUID=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to disable generation of recovery mode menu entries</span></span><br><span class="line"><span class="comment">#GRUB_DISABLE_RECOVERY=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to get a beep at grub start</span></span><br><span class="line"><span class="comment">#GRUB_INIT_TUNE=&quot;480 440 1&quot;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you change this file, run 'update-grub' afterwards to update</span></span><br><span class="line"><span class="comment"># /boot/grub/grub.cfg.</span></span><br><span class="line"><span class="comment"># For full documentation of the options in this file, see:</span></span><br><span class="line"><span class="comment">#   info -f grub -n 'Simple configuration'</span></span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT=0</span><br><span class="line">GRUB_TIMEOUT_STYLE=hidden</span><br><span class="line">GRUB_TIMEOUT=10</span><br><span class="line">GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || <span class="built_in">echo</span> Debian`</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"nomodeset"</span></span><br><span class="line">GRUB_CMDLINE_LINUX=<span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to enable BadRAM filtering, modify to suit your needs</span></span><br><span class="line"><span class="comment"># This works with Linux (no patch required) and with any kernel that obtains</span></span><br><span class="line"><span class="comment"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span></span><br><span class="line"><span class="comment">#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to disable graphical terminal (grub-pc only)</span></span><br><span class="line"><span class="comment">#GRUB_TERMINAL=console</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The resolution used on graphical terminal</span></span><br><span class="line"><span class="comment"># note that you can use only modes which your graphic card supports via VBE</span></span><br><span class="line"><span class="comment"># you can see them in real GRUB with the command `vbeinfo'</span></span><br><span class="line"><span class="comment">#GRUB_GFXMODE=640x480</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux</span></span><br><span class="line"><span class="comment">#GRUB_DISABLE_LINUX_UUID=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to disable generation of recovery mode menu entries</span></span><br><span class="line"><span class="comment">#GRUB_DISABLE_RECOVERY="true"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment to get a beep at grub start</span></span><br><span class="line"><span class="comment">#GRUB_INIT_TUNE="480 440 1"</span></span><br></pre></td></tr></tbody></table></figure>
 <p>After saving that file (using <code>nano</code>, do a <code>Ctl+X</code> then press <code>Y</code>), go ahead and regenerate your grub file using the command</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update grub</span><br></pre></td></tr></tbody></table></figure>
 <p>Once you reboot, you should have the Ubuntu recommended stable Nvidia drivers working! I know it works because my Google Earth Pro now renders the globe perfectly and the system is now smooth with its transitions :)</p>
@@ -139,7 +139,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kaseycodes.tk/2018/10/13/Black-screen-after-installing-Nvidia-drivers-on-Ubuntu-18-04-fix/" data-id="cjxuwuzss0000dtfo4yjycior" class="article-share-link">Share</a>
+      <a data-url="https://kaseycodes.tk/2018/10/13/Black-screen-after-installing-Nvidia-drivers-on-Ubuntu-18-04-fix/" data-id="cjxyu7al70006djfom6xntl5y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/18-04/">18.04</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/drivers/">drivers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub/">grub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvidia/">nvidia</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
@@ -191,7 +191,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/18-04/" style="font-size: 10px;">18.04</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/directing-mind/" style="font-size: 10px;">directing mind</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker-compose</a> <a href="/tags/drivers/" style="font-size: 10px;">drivers</a> <a href="/tags/focus/" style="font-size: 10px;">focus</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/marcus-aurelius/" style="font-size: 20px;">marcus aurelius</a> <a href="/tags/markov-chains/" style="font-size: 10px;">markov chains</a> <a href="/tags/n-grams/" style="font-size: 10px;">n-grams</a> <a href="/tags/nature/" style="font-size: 10px;">nature</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/numpy/" style="font-size: 10px;">numpy</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/opensource/" style="font-size: 10px;">opensource</a> <a href="/tags/procastination/" style="font-size: 15px;">procastination</a> <a href="/tags/productivity/" style="font-size: 15px;">productivity</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/self-worth/" style="font-size: 10px;">self-worth</a> <a href="/tags/stoic/" style="font-size: 20px;">stoic</a> <a href="/tags/stoicism/" style="font-size: 20px;">stoicism</a> <a href="/tags/time/" style="font-size: 15px;">time</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a>
+      <a href="/tags/18-04/" style="font-size: 10px;">18.04</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/directing-mind/" style="font-size: 10px;">directing mind</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker-compose</a> <a href="/tags/drivers/" style="font-size: 10px;">drivers</a> <a href="/tags/focus/" style="font-size: 13.33px;">focus</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/marcus-aurelius/" style="font-size: 20px;">marcus aurelius</a> <a href="/tags/markov-chains/" style="font-size: 10px;">markov chains</a> <a href="/tags/n-grams/" style="font-size: 10px;">n-grams</a> <a href="/tags/nature/" style="font-size: 10px;">nature</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/numpy/" style="font-size: 10px;">numpy</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/opensource/" style="font-size: 10px;">opensource</a> <a href="/tags/procastination/" style="font-size: 13.33px;">procastination</a> <a href="/tags/productivity/" style="font-size: 16.67px;">productivity</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/self-worth/" style="font-size: 13.33px;">self-worth</a> <a href="/tags/stoic/" style="font-size: 20px;">stoic</a> <a href="/tags/stoicism/" style="font-size: 20px;">stoicism</a> <a href="/tags/time/" style="font-size: 13.33px;">time</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a>
     </div>
   </div>
 
@@ -213,6 +213,14 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2019/07/11/Interpreting-Marcus-Aurelius-8/">Interpreting Marcus Aurelius 8</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/10/Interpreting-Marcus-Aurelius-7/">Interpreting Marcus Aurelius 7</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/09/Interpreting-Marcus-Aurelius-6/">Interpreting Marcus Aurelius 6</a>
           </li>
         
@@ -222,14 +230,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2019/06/30/Interpreting-Marcus-Aurelius-4/">Interpreting Marcus Aurelius 4</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/28/Interpreting-Marcus-Aurelius-3/">Interpreting Marcus Aurelius 3</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/25/Interpreting-Marcus-Aurelius-2/">Interpreting Marcus Aurelius 2</a>
           </li>
         
       </ul>
